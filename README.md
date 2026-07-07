@@ -1,5 +1,7 @@
 # Department Request Triage
 
+**Live app:** [https://migsrkrd.github.io/Department-Request-Triage/](https://migsrkrd.github.io/Department-Request-Triage/)
+
 A small internal ops app where employees submit department requests and operations managers review, prioritize, and resolve them. Built as a practical engineering evaluation — focused on product judgment over code volume.
 
 ## Quick start
