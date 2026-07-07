@@ -6,7 +6,11 @@ interface LayoutProps {
   children: ReactNode
 }
 
-const navItems: { view: View; label: string; roles: ('employee' | 'manager')[] }[] = [
+const navItems: {
+  view: View
+  label: string
+  roles: ('employee' | 'manager')[]
+}[] = [
   { view: 'dashboard', label: 'Dashboard', roles: ['employee', 'manager'] },
   { view: 'requests', label: 'Requests', roles: ['employee', 'manager'] },
   { view: 'new-request', label: 'New Request', roles: ['employee'] },
@@ -28,7 +32,9 @@ export function Layout({ children }: LayoutProps) {
     <div className="app-shell">
       <header className="header">
         <div className="header__brand">
-          <span className="header__logo" aria-hidden="true">◈</span>
+          <span className="header__logo" aria-hidden="true">
+            ◈
+          </span>
           <div>
             <span className="header__title">Request Triage</span>
             <span className="header__subtitle">Internal Operations</span>
