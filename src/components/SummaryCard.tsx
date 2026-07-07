@@ -5,7 +5,12 @@ interface SummaryCardProps {
   accent?: 'default' | 'warning' | 'success' | 'info'
 }
 
-export function SummaryCard({ label, value, hint, accent = 'default' }: SummaryCardProps) {
+export function SummaryCard({
+  label,
+  value,
+  hint,
+  accent = 'default',
+}: SummaryCardProps) {
   return (
     <div className={`summary-card summary-card--${accent}`}>
       <span className="summary-card__value">{value}</span>

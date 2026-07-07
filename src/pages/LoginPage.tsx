@@ -8,7 +8,9 @@ export function LoginPage() {
     <div className="login-page">
       <div className="login-card">
         <div className="login-card__header">
-          <span className="login-card__logo" aria-hidden="true">◈</span>
+          <span className="login-card__logo" aria-hidden="true">
+            ◈
+          </span>
           <h1>Request Triage</h1>
           <p className="login-card__tagline">
             Internal operations portal for department requests
@@ -26,9 +28,7 @@ export function LoginPage() {
               className="login-option"
               onClick={() => login(user.id)}
             >
-              <div className="login-option__avatar">
-                {user.name.charAt(0)}
-              </div>
+              <div className="login-option__avatar">{user.name.charAt(0)}</div>
               <div className="login-option__info">
                 <span className="login-option__name">{user.name}</span>
                 <span className="login-option__role">
@@ -37,7 +37,9 @@ export function LoginPage() {
                     : `Employee · ${user.department}`}
                 </span>
               </div>
-              <span className="login-option__arrow" aria-hidden="true">→</span>
+              <span className="login-option__arrow" aria-hidden="true">
+                →
+              </span>
             </button>
           ))}
         </div>

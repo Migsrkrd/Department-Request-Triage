@@ -16,8 +16,14 @@ const STATUSES: RequestStatus[] = [
 ]
 
 export function RequestListPage() {
-  const { currentUser, getVisibleRequests, selectRequest, filters, setFilters, setView } =
-    useApp()
+  const {
+    currentUser,
+    getVisibleRequests,
+    selectRequest,
+    filters,
+    setFilters,
+    setView,
+  } = useApp()
 
   const requests = getVisibleRequests()
   const isManager = currentUser?.role === 'manager'
@@ -30,11 +36,14 @@ export function RequestListPage() {
           <p className="page-header__subtitle">
             {isManager
               ? 'Filter and triage requests across departments.'
-              : 'View and track everything you\'ve submitted.'}
+              : "View and track everything you've submitted."}
           </p>
         </div>
         {!isManager && (
-          <button className="btn btn--primary" onClick={() => setView('new-request')}>
+          <button
+            className="btn btn--primary"
+            onClick={() => setView('new-request')}
+          >
             + New request
           </button>
         )}
@@ -105,7 +114,11 @@ export function RequestListPage() {
             <button
               className="btn btn--ghost btn--sm"
               onClick={() =>
-                setFilters({ status: 'all', priority: 'all', department: 'all' })
+                setFilters({
+                  status: 'all',
+                  priority: 'all',
+                  department: 'all',
+                })
               }
             >
               Clear filters
@@ -122,11 +135,14 @@ export function RequestListPage() {
             description={
               isManager
                 ? 'Try adjusting your filters or check back later.'
-                : 'You haven\'t submitted any requests yet.'
+                : "You haven't submitted any requests yet."
             }
             action={
               !isManager ? (
-                <button className="btn btn--primary" onClick={() => setView('new-request')}>
+                <button
+                  className="btn btn--primary"
+                  onClick={() => setView('new-request')}
+                >
                   Create a request
                 </button>
               ) : undefined
@@ -144,7 +160,8 @@ export function RequestListPage() {
                   <span className="request-row__title">{req.title}</span>
                   <span className="request-row__meta">
                     {req.department}
-                    {isManager && ` · ${req.submittedBy === 'michael' ? 'Michael' : req.submittedBy}`}
+                    {isManager &&
+                      ` · ${req.submittedBy === 'michael' ? 'Michael' : req.submittedBy}`}
                     {' · '}
                     {formatDate(req.submittedAt)}
                   </span>
