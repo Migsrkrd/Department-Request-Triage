@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from 'react'
 import { SEED_REQUESTS } from '../data/seedRequests'
 import { USERS } from '../data/users'
 import type {
@@ -33,7 +39,11 @@ interface AppContextValue extends AppState {
     description: string
     department: Department
   }) => void
-  updateRequestStatus: (id: string, status: RequestStatus, note?: string) => void
+  updateRequestStatus: (
+    id: string,
+    status: RequestStatus,
+    note?: string,
+  ) => void
   updateRequestPriority: (id: string, priority: Priority) => void
   clearSubmitSuccess: () => void
   getVisibleRequests: () => Request[]
@@ -65,7 +75,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [currentUser, setCurrentUser] = useState<User | null>(null)
   const [requests, setRequests] = useState<Request[]>(loadRequests)
   const [view, setView] = useState<View>('login')
-  const [selectedRequestId, setSelectedRequestId] = useState<string | null>(null)
+  const [selectedRequestId, setSelectedRequestId] = useState<string | null>(
+    null,
+  )
   const [filters, setFiltersState] = useState<Filters>(defaultFilters)
   const [submitSuccess, setSubmitSuccess] = useState(false)
 
@@ -120,7 +132,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setView('dashboard')
   }
 
-  const updateRequestStatus = (id: string, status: RequestStatus, note?: string) => {
+  const updateRequestStatus = (
+    id: string,
+    status: RequestStatus,
+    note?: string,
+  ) => {
     setRequests((prev) =>
       prev.map((r) =>
         r.id === id
@@ -159,8 +175,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
         if (filters.priority === 'unset') return r.priority === null
         return r.priority === filters.priority
       })
-      .filter((r) => filters.department === 'all' || r.department === filters.department)
-      .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
+      .filter(
+        (r) =>
+          filters.department === 'all' || r.department === filters.department,
+      )
+      .sort(
+        (a, b) =>
+          new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+      )
   }
 
   return (

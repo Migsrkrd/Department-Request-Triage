@@ -41,7 +41,11 @@ export function RequestDetailPage() {
 
   const isManager = currentUser.role === 'manager'
   const submitter = getUserById(request.submittedBy)
-  const nextAction = getNextAction(request.status, currentUser.role, request.managerNote)
+  const nextAction = getNextAction(
+    request.status,
+    currentUser.role,
+    request.managerNote,
+  )
   const allowedTransitions = isManager
     ? MANAGER_STATUS_OPTIONS[request.status]
     : []
@@ -136,7 +140,10 @@ export function RequestDetailPage() {
                   id="priority-select"
                   value={request.priority ?? ''}
                   onChange={(e) =>
-                    updateRequestPriority(request.id, e.target.value as Priority)
+                    updateRequestPriority(
+                      request.id,
+                      e.target.value as Priority,
+                    )
                   }
                 >
                   <option value="" disabled>
@@ -171,7 +178,10 @@ export function RequestDetailPage() {
                 <div className="manager-control">
                   <label htmlFor="manager-note">
                     Note for employee
-                    <span className="form-hint"> Required when requesting info</span>
+                    <span className="form-hint">
+                      {' '}
+                      Required when requesting info
+                    </span>
                   </label>
                   <textarea
                     id="manager-note"
@@ -210,25 +220,33 @@ export function RequestDetailPage() {
             <div className="card workflow-guide">
               <h3>Workflow</h3>
               <ol className="workflow-steps">
-                {(['new', 'in_review', 'approved', 'in_progress', 'resolved'] as RequestStatus[]).map(
-                  (step) => (
-                    <li
-                      key={step}
-                      className={
-                        request.status === step
+                {(
+                  [
+                    'new',
+                    'in_review',
+                    'approved',
+                    'in_progress',
+                    'resolved',
+                  ] as RequestStatus[]
+                ).map((step) => (
+                  <li
+                    key={step}
+                    className={
+                      request.status === step
+                        ? 'workflow-steps__current'
+                        : request.status === 'needs_info' &&
+                            step === 'in_review'
                           ? 'workflow-steps__current'
-                          : request.status === 'needs_info' && step === 'in_review'
-                            ? 'workflow-steps__current'
-                            : ''
-                      }
-                    >
-                      {STATUS_LABELS[step]}
-                    </li>
-                  ),
-                )}
+                          : ''
+                    }
+                  >
+                    {STATUS_LABELS[step]}
+                  </li>
+                ))}
               </ol>
               <p className="workflow-guide__note">
-                "Needs Info" branches off from In Review and returns when the employee responds.
+                "Needs Info" branches off from In Review and returns when the
+                employee responds.
               </p>
             </div>
           </aside>

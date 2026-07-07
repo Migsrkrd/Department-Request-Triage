@@ -1,0 +1,41 @@
+name: Branch Policy
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  enforce-flow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR branch flow
+        env:
+          BASE: ${{ github.base_ref }}
+          HEAD: ${{ github.head_ref }}
+        run: |
+          echo "PR: $HEAD -> $BASE"
+
+          case "$BASE" in
+            dev)
+              if [[ "$HEAD" == "dev" || "$HEAD" == "stage" || "$HEAD" == "production" ]]; then
+                echo "Only feature branches may target dev."
+                exit 1
+              fi
+              ;;
+            stage)
+              if [[ "$HEAD" != "dev" ]]; then
+                echo "Only dev may merge into stage."
+                exit 1
+              fi
+              ;;
+            production)
+              if [[ "$HEAD" != "stage" ]]; then
+                echo "Only stage may merge into production."
+                exit 1
+              fi
+              ;;
+            *)
+              echo "PRs may only target dev, stage, or production."
+              exit 1
+              ;;
+          esac

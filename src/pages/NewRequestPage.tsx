@@ -4,7 +4,11 @@ import type { Department } from '../types'
 
 const DEPARTMENTS: { value: Department; label: string; hint: string }[] = [
   { value: 'IT', label: 'IT', hint: 'Hardware, software, access' },
-  { value: 'Facilities', label: 'Facilities', hint: 'Building, HVAC, supplies' },
+  {
+    value: 'Facilities',
+    label: 'Facilities',
+    hint: 'Building, HVAC, supplies',
+  },
   { value: 'HR', label: 'HR', hint: 'People, policies, org changes' },
   { value: 'Finance', label: 'Finance', hint: 'Expenses, budgets, invoices' },
 ]
@@ -30,7 +34,11 @@ export function NewRequestPage() {
       setError('Please select a department.')
       return
     }
-    createRequest({ title: title.trim(), description: description.trim(), department })
+    createRequest({
+      title: title.trim(),
+      description: description.trim(),
+      department,
+    })
   }
 
   return (
@@ -43,7 +51,8 @@ export function NewRequestPage() {
         <div>
           <h1>New Request</h1>
           <p className="page-header__subtitle">
-            Tell us what you need. Operations will review and route it to the right team.
+            Tell us what you need. Operations will review and route it to the
+            right team.
           </p>
         </div>
       </div>
@@ -107,7 +116,11 @@ export function NewRequestPage() {
         </div>
 
         <div className="form-actions">
-          <button type="button" className="btn btn--ghost" onClick={() => setView('dashboard')}>
+          <button
+            type="button"
+            className="btn btn--ghost"
+            onClick={() => setView('dashboard')}
+          >
             Cancel
           </button>
           <button type="submit" className="btn btn--primary">

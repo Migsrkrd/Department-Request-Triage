@@ -38,7 +38,8 @@ export const SEED_REQUESTS: Request[] = [
     submittedBy: 'michael',
     submittedAt: '2026-06-28T16:00:00Z',
     updatedAt: '2026-07-02T10:10:00Z',
-    managerNote: 'Please confirm the full list of team members for each new group.',
+    managerNote:
+      'Please confirm the full list of team members for each new group.',
   },
   {
     id: 'req-004',
@@ -51,7 +52,8 @@ export const SEED_REQUESTS: Request[] = [
     submittedBy: 'michael',
     submittedAt: '2026-06-20T13:45:00Z',
     updatedAt: '2026-06-25T09:30:00Z',
-    managerNote: 'Rerouted through correct approval chain. Reimbursement processed.',
+    managerNote:
+      'Rerouted through correct approval chain. Reimbursement processed.',
   },
   {
     id: 'req-005',
@@ -69,7 +71,8 @@ export const SEED_REQUESTS: Request[] = [
   {
     id: 'req-006',
     title: 'Broken hand dryer — 3rd floor restroom',
-    description: 'Hand dryer in the north restroom has not worked for over a week.',
+    description:
+      'Hand dryer in the north restroom has not worked for over a week.',
     department: 'Facilities',
     status: 'new',
     priority: null,

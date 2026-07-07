@@ -29,8 +29,12 @@ export function DashboardPage() {
 
   if (isManager) {
     const open = requests.filter((r) => r.status !== 'resolved')
-    const needsReview = requests.filter((r) => r.status === 'new' || r.status === 'in_review')
-    const urgent = requests.filter((r) => r.priority === 'urgent' || r.priority === 'high')
+    const needsReview = requests.filter(
+      (r) => r.status === 'new' || r.status === 'in_review',
+    )
+    const urgent = requests.filter(
+      (r) => r.priority === 'urgent' || r.priority === 'high',
+    )
     const resolvedThisWeek = requests.filter((r) => {
       if (r.status !== 'resolved') return false
       const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000
@@ -49,7 +53,11 @@ export function DashboardPage() {
         </div>
 
         <div className="summary-grid">
-          <SummaryCard label="Open requests" value={open.length} hint="Across all departments" />
+          <SummaryCard
+            label="Open requests"
+            value={open.length}
+            hint="Across all departments"
+          />
           <SummaryCard
             label="Needs review"
             value={needsReview.length}
@@ -72,7 +80,10 @@ export function DashboardPage() {
         <section className="card">
           <div className="card__header">
             <h2>Needs attention</h2>
-            <button className="btn btn--ghost btn--sm" onClick={() => setView('requests')}>
+            <button
+              className="btn btn--ghost btn--sm"
+              onClick={() => setView('requests')}
+            >
               View all
             </button>
           </div>
@@ -124,7 +135,10 @@ export function DashboardPage() {
             Track your department requests and see what happens next.
           </p>
         </div>
-        <button className="btn btn--primary" onClick={() => setView('new-request')}>
+        <button
+          className="btn btn--primary"
+          onClick={() => setView('new-request')}
+        >
           + New request
         </button>
       </div>
@@ -134,7 +148,9 @@ export function DashboardPage() {
           <span>✓</span>
           <div>
             <strong>Request submitted</strong>
-            <p>Operations will review it shortly. You can track progress below.</p>
+            <p>
+              Operations will review it shortly. You can track progress below.
+            </p>
           </div>
         </div>
       )}
@@ -178,7 +194,10 @@ export function DashboardPage() {
         <div className="card__header">
           <h2>Your requests</h2>
           {requests.length > 0 && (
-            <button className="btn btn--ghost btn--sm" onClick={() => setView('requests')}>
+            <button
+              className="btn btn--ghost btn--sm"
+              onClick={() => setView('requests')}
+            >
               View all
             </button>
           )}
@@ -190,7 +209,10 @@ export function DashboardPage() {
             title="No requests yet"
             description="Submit your first department request and track it here."
             action={
-              <button className="btn btn--primary" onClick={() => setView('new-request')}>
+              <button
+                className="btn btn--primary"
+                onClick={() => setView('new-request')}
+              >
                 Create a request
               </button>
             }

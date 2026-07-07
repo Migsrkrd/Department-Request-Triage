@@ -44,7 +44,7 @@ export function getNextAction(
           ? `Action needed: ${managerNote}`
           : 'Operations needs more information. Check the notes below.'
       case 'approved':
-        return 'Approved — work will begin soon. You\'ll be notified when it starts.'
+        return "Approved — work will begin soon. You'll be notified when it starts."
       case 'in_progress':
         return managerNote
           ? `In progress: ${managerNote}`
