@@ -1,12 +1,7 @@
 export type UserRole = 'employee' | 'manager'
 
 export type RequestStatus =
-  | 'new'
-  | 'in_review'
-  | 'needs_info'
-  | 'approved'
-  | 'in_progress'
-  | 'resolved'
+  'new' | 'in_review' | 'needs_info' | 'approved' | 'in_progress' | 'resolved'
 
 export type Priority = 'low' | 'medium' | 'high' | 'urgent'
 
@@ -33,11 +28,7 @@ export interface Request {
 }
 
 export type View =
-  | 'login'
-  | 'dashboard'
-  | 'requests'
-  | 'request-detail'
-  | 'new-request'
+  'login' | 'dashboard' | 'requests' | 'request-detail' | 'new-request'
 
 export interface Filters {
   status: RequestStatus | 'all'

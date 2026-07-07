@@ -71,7 +71,10 @@ textarea {
   border-radius: var(--radius-sm);
   font-size: 0.875rem;
   font-weight: 500;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
 }
 
 .btn--primary {
@@ -122,18 +125,51 @@ textarea {
   white-space: nowrap;
 }
 
-.badge--new { background: #e7f5ff; color: #1864ab; }
-.badge--review { background: #fff3bf; color: #e67700; }
-.badge--info { background: #ffe8cc; color: #d9480f; }
-.badge--approved { background: #d3f9d8; color: #2b8a3e; }
-.badge--progress { background: #edf2ff; color: #3b5bdb; }
-.badge--resolved { background: #e9ecef; color: #495057; }
-.badge--unset { background: #f1f3f5; color: #868e96; }
+.badge--new {
+  background: #e7f5ff;
+  color: #1864ab;
+}
+.badge--review {
+  background: #fff3bf;
+  color: #e67700;
+}
+.badge--info {
+  background: #ffe8cc;
+  color: #d9480f;
+}
+.badge--approved {
+  background: #d3f9d8;
+  color: #2b8a3e;
+}
+.badge--progress {
+  background: #edf2ff;
+  color: #3b5bdb;
+}
+.badge--resolved {
+  background: #e9ecef;
+  color: #495057;
+}
+.badge--unset {
+  background: #f1f3f5;
+  color: #868e96;
+}
 
-.badge--priority-low { background: #f1f3f5; color: #495057; }
-.badge--priority-medium { background: #fff3bf; color: #e67700; }
-.badge--priority-high { background: #ffe8cc; color: #d9480f; }
-.badge--priority-urgent { background: #ffe3e3; color: #c92a2a; }
+.badge--priority-low {
+  background: #f1f3f5;
+  color: #495057;
+}
+.badge--priority-medium {
+  background: #fff3bf;
+  color: #e67700;
+}
+.badge--priority-high {
+  background: #ffe8cc;
+  color: #d9480f;
+}
+.badge--priority-urgent {
+  background: #ffe3e3;
+  color: #c92a2a;
+}
 
 /* ── Login ── */
 
@@ -199,7 +235,9 @@ textarea {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   text-align: left;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
   width: 100%;
 }
 
@@ -308,7 +346,9 @@ textarea {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
 }
 
 .nav-link:hover {
@@ -363,8 +403,14 @@ textarea {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .page-header {
@@ -451,9 +497,15 @@ textarea {
   flex-direction: column;
 }
 
-.summary-card--warning { border-left: 3px solid var(--color-warning); }
-.summary-card--success { border-left: 3px solid var(--color-success); }
-.summary-card--info { border-left: 3px solid var(--color-info); }
+.summary-card--warning {
+  border-left: 3px solid var(--color-warning);
+}
+.summary-card--success {
+  border-left: 3px solid var(--color-success);
+}
+.summary-card--info {
+  border-left: 3px solid var(--color-info);
+}
 
 .summary-card__value {
   font-size: 1.75rem;
@@ -748,7 +800,9 @@ textarea {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   text-align: left;
-  transition: border-color 0.15s, background 0.15s;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
 }
 
 .dept-option:hover {
