@@ -17,6 +17,45 @@ Open the URL shown in the terminal (usually `http://localhost:5173`). Pick a dem
 - **Michael** (Employee) — submit and track your own requests
 - **Sarah** (Operations Manager) — triage all requests, set priority, advance workflow
 
+## CI/CD pipeline
+
+Changes promote through three long-lived branches. **`dev`** is the default branch on GitHub — all feature work merges here first.
+
+```
+feature/*  →  dev  →  stage  →  production  →  GitHub Pages
+                ↑
+         tests + formatting
+```
+
+| Branch | Purpose | How code gets in |
+|--------|---------|------------------|
+| `dev` | Integration / default branch | PR from any feature branch |
+| `stage` | Pre-production validation | PR from `dev` only |
+| `production` | Live release | PR from `stage` only |
+
+**Pull request rules** (enforced by `.github/workflows/branch-policy.yml`):
+
+- Feature branches → `dev` only (`dev`, `stage`, and `production` cannot target `dev`)
+- `dev` → `stage` only
+- `stage` → `production` only
+
+**CI checks** (`.github/workflows/ci.yml`) run on every PR into `dev`:
+
+- Prettier formatting (`npm run format`)
+- Vitest unit tests (`npm run test`)
+- Production build (`npm run build`)
+
+**Deployment** (`.github/workflows/deploy.yml`) runs automatically when `stage` is merged into `production`. The built app is published to GitHub Pages at the live URL above.
+
+Run the same checks locally before opening a PR:
+
+```bash
+npm run format      # check formatting
+npm run format:fix  # auto-fix formatting
+npm run test        # run unit tests
+npm run build       # verify production build
+```
+
 ## What makes this app different
 
 Most triage demos are just CRUD with a table. I tried to make the *roles feel different*:
