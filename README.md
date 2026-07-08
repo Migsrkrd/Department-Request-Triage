@@ -14,6 +14,7 @@ npm run dev
 Open the URL shown in the terminal (usually `http://localhost:5173`). Pick a demo user on the login screen — no password needed.
 
 **Demo users:**
+
 - **Michael** (Employee) — submit and track your own requests
 - **Sarah** (Operations Manager) — triage all requests, set priority, advance workflow
 
@@ -27,11 +28,11 @@ feature/*  →  dev  →  stage  →  production  →  GitHub Pages
          tests + formatting
 ```
 
-| Branch | Purpose | How code gets in |
-|--------|---------|------------------|
-| `dev` | Integration / default branch | PR from any feature branch |
-| `stage` | Pre-production validation | PR from `dev` only |
-| `production` | Live release | PR from `stage` only |
+| Branch       | Purpose                      | How code gets in           |
+| ------------ | ---------------------------- | -------------------------- |
+| `dev`        | Integration / default branch | PR from any feature branch |
+| `stage`      | Pre-production validation    | PR from `dev` only         |
+| `production` | Live release                 | PR from `stage` only       |
 
 **Pull request rules** (enforced by `.github/workflows/branch-policy.yml`):
 
@@ -58,7 +59,7 @@ npm run build       # verify production build
 
 ## What makes this app different
 
-Most triage demos are just CRUD with a table. I tried to make the *roles feel different*:
+Most triage demos are just CRUD with a table. I tried to make the _roles feel different_:
 
 - **Employees** see a guided dashboard with "next step" language, action-needed callouts, and a simple submission flow with department picker hints
 - **Managers** get a triage dashboard with summary cards, filters, and a sidebar to move requests through the workflow
